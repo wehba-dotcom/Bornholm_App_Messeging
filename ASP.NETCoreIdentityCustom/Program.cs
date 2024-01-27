@@ -17,6 +17,11 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient("MyClient", client =>
+{
+    // Set the timeout to 30 seconds (or any other duration you prefer)
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
 
 #region Authorization
 
