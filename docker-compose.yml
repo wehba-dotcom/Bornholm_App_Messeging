@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  fealles-service:
+    build:
+      context: .
+      dockerfile: FeallesService/Dockerfile
+    ports:
+      - "8000:80"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__ApplicationDbContextConnection: "Server=192.168.0.52;Database=fealesbaseoneservice;User Id=SA;Password=Asd123asd;trusted_connection=false;Persist Security Info=False;Encrypt=False"
+    depends_on:
+      - database
+
+  database:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+   
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: "Asd123asd"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+     
+    # volumes:
+    #   - type: bind
+    #     source: "C:\\Program Files\\Microsoft SQL Server\\MSSQL16.MSSQLSERVER\\MSSQL\\Backup\\fealesbaseoneservice.bak"
+    #     target: /var/opt/mssql/backup/fealesbaseoneservice.bak
+    # command: /bin/bash -c "sleep 30s && /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Asd123asd -Q \"RESTORE DATABASE fealesbaseoneservice FROM DISK='/var/opt/mssql/backup/fealesbaseoneservice.bak' WITH MOVE 'fealesbaseoneservice' TO '/var/opt/mssql/data/fealesbaseoneservice.mdf', MOVE 'fealesbaseoneservice_log' TO '/var/opt/mssql/data/fealesbaseoneservice_log.ldf'\""
+
+

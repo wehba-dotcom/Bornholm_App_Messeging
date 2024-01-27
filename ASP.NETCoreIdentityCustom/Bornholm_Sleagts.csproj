@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>2cd72cdd-d22b-4716-bece-6795e43b2a3e</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.20.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Role\Manager.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Role\Manager.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Feallesbase\Create.cshtml" />
+    <None Include="Views\Feallesbase\Delete.cshtml" />
+    <None Include="Views\Feallesbase\Index.cshtml" />
+    <None Include="Views\Feallesbase\Search.cshtml" />
+    <None Include="Views\Feallesbase\Update.cshtml" />
+  </ItemGroup>
+
+</Project>
